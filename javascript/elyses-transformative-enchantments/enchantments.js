@@ -117,5 +117,4 @@ export function reorder(deck) {
   const firstCard = deck.shift();
   const reversedDeck = deck.reverse();
   deck.push(firstCard);
-  return deck;
 }
