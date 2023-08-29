@@ -47,7 +47,9 @@ export function addTrack(playlist, track) {
  * @returns {string[]} new playlist
  */
 export function deleteTrack(playlist, track) {
-  throw new Error("Please implement the deleteTrack function");
+  const newSet = new Set(playlist);
+  newSet.delete(track);
+  return [...newSet];
 }
 
 /**
@@ -57,5 +59,16 @@ export function deleteTrack(playlist, track) {
  * @returns {string[]} list of artists
  */
 export function listArtists(playlist) {
-  throw new Error("Please implement the listArtists function");
+  const newSet = new Set();
+
+  for (const item of playlist) {
+    const artistName = item.split(" ").slice(-2).join(" ");
+    newSet.add(artistName);
+  }
+  return [...newSet];
 }
+// Alternative solution ----------------------->
+// export function listArtists(playlist) {
+//   const artistSet = new Set(playlist.map(item => item.split(" ").slice(-2).join(" ")));
+//   return [...artistSet];
+// }
