@@ -4,6 +4,8 @@
 // the @ts-check directive. It will give you helpful autocompletion when
 // implementing this exercise.
 
+import { forEach } from "core-js/core/array";
+
 /**
  * Removes duplicate tracks from a playlist.
  *
@@ -11,7 +13,7 @@
  * @returns {string[]} new playlist with unique entries
  */
 export function removeDuplicates(playlist) {
-  throw new Error('Please implement the removeDuplicates function');
+  return new Array(...new Set([...playlist]));
 }
 
 /**
@@ -22,7 +24,7 @@ export function removeDuplicates(playlist) {
  * @returns {boolean} whether the track is in the playlist
  */
 export function hasTrack(playlist, track) {
-  throw new Error('Please implement the hasTrack function');
+  return new Set([...playlist]).has(track);
 }
 
 /**
@@ -33,7 +35,8 @@ export function hasTrack(playlist, track) {
  * @returns {string[]} new playlist
  */
 export function addTrack(playlist, track) {
-  throw new Error('Please implement the addTrack function');
+  const uniqueSet = new Set([...playlist]);
+  return new Array(...uniqueSet.add(track));
 }
 
 /**
@@ -44,7 +47,7 @@ export function addTrack(playlist, track) {
  * @returns {string[]} new playlist
  */
 export function deleteTrack(playlist, track) {
-  throw new Error('Please implement the deleteTrack function');
+  throw new Error("Please implement the deleteTrack function");
 }
 
 /**
@@ -54,5 +57,5 @@ export function deleteTrack(playlist, track) {
  * @returns {string[]} list of artists
  */
 export function listArtists(playlist) {
-  throw new Error('Please implement the listArtists function');
+  throw new Error("Please implement the listArtists function");
 }
