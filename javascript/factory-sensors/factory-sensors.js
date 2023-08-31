@@ -1,5 +1,7 @@
 // @ts-check
 
+import { error } from "console";
+
 export class ArgumentError extends Error {}
 
 export class OverheatingError extends Error {
@@ -17,7 +19,7 @@ export class OverheatingError extends Error {
  */
 export function checkHumidityLevel(humidityPercentage) {
   if (humidityPercentage > 70) {
-    throw new Error("Humidity is too high");
+    throw error("The temperature is too High");
   }
 }
 
@@ -52,16 +54,14 @@ export function monitorTheMachine(actions) {
   } catch (error) {
     if (error instanceof ArgumentError) {
       actions.alertDeadSensor();
-    } else {
-      if (error instanceof OverheatingError) {
-        if (error.temperature > 600) {
-          actions.shutdown();
-        } else {
-          actions.alertOverheating();
-        }
+    } else if (error instanceof OverheatingError) {
+      if (error.temperature > 600) {
+        actions.shutdown();
       } else {
-        throw error;
+        actions.alertOverheating();
       }
+    } else {
+      throw error;
     }
   }
 }

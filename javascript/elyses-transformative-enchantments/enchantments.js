@@ -19,20 +19,10 @@ export function seeingDouble(deck) {
  */
 export function threeOfEachThree(deck) {
   // Create a new array called newDeck using the reduce method
-  const newDeck = deck.reduce((accumulator, currentValue) => {
-    // If the current value is equal to 3, push three copies of the value into the accumulator array
-    if (currentValue === 3) {
-      accumulator.push(currentValue, currentValue, currentValue);
-    }
-    // Otherwise, push the currentValue into the accumulator array
-    else {
-      accumulator.push(currentValue);
-    }
-    // Return the accumulator array
-    return accumulator;
-  }, []);
+  // If the current value is equal to 3, push three copies of the value into the accumulator array
+  // Otherwise, push the currentValue into the accumulator array
+  // Return the accumulator array
   // Return the newDeck array
-  return newDeck;
 }
 
 /**
@@ -44,9 +34,7 @@ export function threeOfEachThree(deck) {
  * @returns {number[]} deck with only two middle cards
  */
 
-export function middleTwo(deck) {
-  return deck.slice(4, 6);
-}
+export function middleTwo(deck) {}
 
 /**
  * Moves the outside two cards to the middle.
@@ -58,13 +46,9 @@ export function middleTwo(deck) {
 
 export function sandwichTrick(deck) {
   // Remove the first item from the deck and store it in a variable
-  let rightMiddleItem = deck.shift();
   // Remove the last item from the deck and store it in a variable
-  let leftMiddleItem = deck.pop();
   // Calculate the middle index of the deck
-  let middleIndex = Math.floor(deck.length / 2);
   // Insert the left and right middle items at the middle index of the deck
-  deck.splice(middleIndex, 0, leftMiddleItem, rightMiddleItem);
   // Return the modified deck
   return deck;
 }
@@ -83,8 +67,6 @@ export function twoIsSpecial(deck) {
    * @param {number[]} deck - The array to filter.
    * @returns {number[]} - A new array containing only the elements that are equal to 2.
    */
-  const result = deck.filter((currentNumber) => currentNumber === 2);
-  return result;
 }
 
 /**
@@ -97,7 +79,6 @@ export function twoIsSpecial(deck) {
 
 export function perfectlyOrdered(deck) {
   // Sorts the deck array by comparing b from a and will sort the array in ascending order(if it doesn't contain NaN)
-  return deck.sort((a, b) => a - b);
 }
 
 /**
@@ -113,8 +94,4 @@ export function perfectlyOrdered(deck) {
  * @param {Array} deck - An array of cards representing the deck to be reordered.
  * @returns {Array} - The reordered deck of cards.
  */
-export function reorder(deck) {
-  const firstCard = deck.shift();
-  const reversedDeck = deck.reverse();
-  deck.push(firstCard);
-}
+export function reorder(deck) {}
